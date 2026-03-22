@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.2' // 공식 안정화 버전으로 통일
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.example.security'
+version = 'security-0.0.1-SNAPSHOT'
+description = 'spring-security-project'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // 1. Database (JPA 및 PostgreSQL)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // 2. Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // 3. Web (동기식 Servlet 기반 REST API - 공식 명칭)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // [선택 사항] JWT 토큰 기반 인증 시 추가 필요
+    // implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // 4. Test Dependencies (공식 명칭으로 통합 및 수정)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+    failOnNoDiscoveredTests = false // 테스트가 없어도 빌드 실패 안 시킴
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
