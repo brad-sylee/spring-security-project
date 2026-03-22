@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-security-project.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-security-project.iml" group="spring-security-project" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-security-project_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-security-project_main.iml" group="spring-security-project" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-security-project_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-security-project_test.iml" group="spring-security-project" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-security-project.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-security-project.main.iml" />
     </modules>
   </component>
 </project>
